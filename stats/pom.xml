@@ -12,6 +12,7 @@
 
     <name>Stats Client</name>
 
+
     <artifactId>stats-client</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
