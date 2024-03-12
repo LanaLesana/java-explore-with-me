@@ -1,10 +1,6 @@
 package ru.practicum.explore.request;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import ru.practicum.explore.enums.RequestStatus;
 import ru.practicum.explore.event.Event;
 import ru.practicum.explore.user.User;

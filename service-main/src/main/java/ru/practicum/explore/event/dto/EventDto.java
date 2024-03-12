@@ -1,12 +1,7 @@
 package ru.practicum.explore.event.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.AccessLevel;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 import ru.practicum.explore.category.dto.CategoryDto;
 import ru.practicum.explore.enums.EventState;
