@@ -9,7 +9,6 @@
 		<property name="ignorePattern" value="^package.*|^import.*|a href|href|http://|https://|ftp://"/>
 		<property name="max" value="120"/>
 		<metadata name="net.sf.eclipsecs.core.lastEnabledSeverity" value="inherit"/>
-
 	</module>
 	<module name="TreeWalker">
 		<module name="IllegalImport">
