@@ -27,11 +27,14 @@ public class StatsController {
     @PostMapping("/hit")
     @ResponseStatus(code = HttpStatus.CREATED)
     public HitDto addHit(@RequestBody HitDto hitDto) {
-        log.info("[POST /hit]. Создан запрос по (app: {}, client ip: {}, endpoint path: {}, time: {})",
-                hitDto.getApp(), hitDto.getIp(), hitDto.getUri(), hitDto.getTimestamp());
+        log.info(String.format("[POST /hit]. Создан запрос по (app: %s, client ip: %s, endpoint path: {}, time: %s", hitDto.getApp(), hitDto.getIp(), hitDto.getUri(), hitDto.getTimestamp()));
+
         return toHitDto(statsService.saveHit(hitDto));
 
     }
+
+
+
 
     @GetMapping("/stats")
     public List<StatsDto> getStats(@RequestParam String start,
@@ -39,9 +42,8 @@ public class StatsController {
                                    @RequestParam(required = false) List<String> uris,
                                    @RequestParam(required = false, defaultValue = "false") Boolean unique) {
 
-        log.info("[GET /stats?start={start}&end={end}&uris={uris}&unique={unique}]." +
-                        " Запрошена статистика за период с даты: {} по дату: {} по uris: {} (unique: {})",
-                start, end, uris, unique);
+        log.info(String.format("[GET /stats?start={start}&end={end}&uris={uris}&unique={unique}].Запрошена статистика за период с даты: %s по дату: %s по uris: %s (unique: %s)",  start, end, uris, unique));
+
 
         return statsService.getStats(start, end, uris, unique);
     }
