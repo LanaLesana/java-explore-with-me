@@ -21,6 +21,7 @@ public class ModelMapper {
 
     public static HitDto toHitDto(ModelHit modelHit) {
         return HitDto.builder()
+                //.id(modelHit.getId())
                 .app(modelHit.getApp())
                 .uri(modelHit.getUri())
                 .ip(modelHit.getIp())

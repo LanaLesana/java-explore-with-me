@@ -27,7 +27,6 @@ public interface StatsRepository extends JpaRepository<ModelHit, Long> {
             "order by count(distinct mh.ip) desc")
     List<StatsDto> findAllUniqueIp(LocalDateTime start, LocalDateTime end);
 
-
     @Query("select new ru.practicum.explore.useDto.dto.StatsDto(mh.app, mh.uri, count(mh.ip)) " +
             "from ModelHit mh " +
             "where mh.timestamp between ?1 and ?2 " +
