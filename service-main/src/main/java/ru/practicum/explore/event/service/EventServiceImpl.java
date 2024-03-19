@@ -81,6 +81,13 @@ public class EventServiceImpl implements EventService {
         User user = getUser(userId);
 
         LocalDateTime minStartDate = LocalDateTime.now().plusHours(1);
+
+        Long participantLimit = eventNewDto.getParticipantLimit();
+        if (participantLimit < 0) {
+            throw new IllegalArgumentException(String
+                    .format("Количество участников не может быть отрицательным: %d", participantLimit));
+        }
+
         if (eventNewDto.getEventDate().isBefore(minStartDate)) {
             throw new ConflictException(String.format("Дата события не может быть ранее даты добавления на %d час", 1));
         }
@@ -169,7 +176,12 @@ public class EventServiceImpl implements EventService {
             eventToUpd.setPaid(eventDto.getPaid());
         }
         if (eventDto.getParticipantLimit() != null) {
-            eventToUpd.setParticipantLimit(eventDto.getParticipantLimit());
+            Long participantLimit = eventDto.getParticipantLimit();
+            if (participantLimit < 0) {
+                throw new IllegalArgumentException(String
+                        .format("Количество участников не может быть отрицательным: %d", participantLimit));
+            }
+            eventToUpd.setParticipantLimit(participantLimit);
         }
         if (eventDto.getRequestModeration() != null) {
             eventToUpd.setRequestModeration(eventDto.getRequestModeration());
