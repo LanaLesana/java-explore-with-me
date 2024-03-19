@@ -1,5 +1,6 @@
-package ru.practicum.explore.category.dto;
+package ru.practicum.explore.comments.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,8 +9,7 @@ import lombok.Builder;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -17,9 +17,10 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class CategoryDto {
+public class CommentShortDto {
     Long id;
-    @NotBlank
-    @Size(max = 50, min = 1)
-    String name;
+    String text;
+    String authorName;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    LocalDateTime created;
 }
