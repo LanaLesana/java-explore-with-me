@@ -1,6 +1,10 @@
 package ru.practicum.explore.event.search;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.Builder;
+import lombok.AccessLevel;
+import lombok.Data;
 import lombok.experimental.FieldDefaults;
 import ru.practicum.explore.enums.EventState;
 
